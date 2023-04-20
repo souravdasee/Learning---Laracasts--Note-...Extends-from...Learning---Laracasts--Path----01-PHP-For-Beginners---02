@@ -8,7 +8,7 @@ require BASE_PATH . 'Core/functions.php';
 spl_autoload_register(function ($class)
 {
     // Core\Database
-    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+    $class = str_replace('\\', '/', $class);
 
     require base_path("{$class}.php");
 });
