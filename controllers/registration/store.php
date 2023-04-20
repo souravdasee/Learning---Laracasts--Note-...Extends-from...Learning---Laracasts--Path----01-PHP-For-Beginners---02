@@ -40,7 +40,7 @@ if ($user) {
     // if not, save one to the database, and then log the user in, and redirect.
     $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
         'email' => $email,
-        'password' => $password // NEVER store database passwords in clear text. We'll fix this in the login form episode. :)
+        'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
     // mark that the user has logged in.
